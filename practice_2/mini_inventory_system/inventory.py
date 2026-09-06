@@ -67,3 +67,48 @@ for product in low_stock(inventory, 10):
     print(product)
 print("=" * 30)
 
+# finding the most expensive product
+
+def most_expensive(inventory):
+    highest_price = inventory[0]
+
+    for product in inventory:
+        if product["price"] > highest_price["price"]:
+            highest_price = product
+
+    return highest_price
+
+print("=" * 30)
+print()
+print(f"MOst expensive product : {most_expensive(inventory)}")
+
+# restocking a product
+
+def restock(inventory, name, extra_qty):
+    for product in inventory:
+        if product["name"] == name:
+            product["quantity"] += extra_qty
+            return
+
+
+restock(inventory, "Rice 2kg", 15)
+restock(inventory, "Bread", 20)
+
+print("=" * 30)
+print("         Restocked inventory")
+for product in inventory:
+    print(product)
+print()
+
+
+# sort inventory by price
+# using lambda function to get product prices as the key for the sorted function
+#                                           par         expression
+sorted_inv = sorted(inventory, key= lambda product: product["price"])
+
+print("=" * 30)
+print()
+print("Sorted inventory by price:")
+
+for product in sorted_inv:
+    print(product)
