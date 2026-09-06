@@ -47,17 +47,51 @@ for department in departments:
     avg_salary[department] = avg
 
 
+# highest and lowest paid employees
+
+highest_paid = employees[0]
+lowest_paid = employees[0]
+
+for employee in employees:
+    if employee["salary"] > highest_paid["salary"]:
+        highest_paid = employee
+
+    if employee["salary"] < lowest_paid["salary"]:
+            lowest_paid = employee
+
+
+
 
 print("=" * 30)
 print()
 print(f"Total employees : {total_employees}")
 print("=" * 30)
+
 print()
 print("Departments")
-print(dept_list)
+print()
+for dept in dept_list:
+    print(dept)
 print("=" * 30)
 print()
+
 print("Average salary per dept:")
+print()
 for department,avg in avg_salary.items():
     print(f"{department} : {avg}")
+print("=" * 30)
+print()
+
+print("Highest paid employee :")
+print()
+for key, value in highest_paid.items():
+    print(f"{key} : {value}")
+print("=" * 30)
+print()
+
+print("Lowest paid employee :")
+print()
+for key, value in lowest_paid.items():
+    print(f"{key} : {value}")
+
 
