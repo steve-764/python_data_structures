@@ -59,8 +59,37 @@ for employee in employees:
     if employee["salary"] < lowest_paid["salary"]:
             lowest_paid = employee
 
+# finding dept with highest avg salary
+
+highest_dept = None
+highest_avg = 0
+# using avg salary to compare averages
+for department, average in avg_salary.items():
+    if average > highest_avg:
+        highest_avg = average
+        highest_dept = department
+
+# headcount per department
+headcount = {}
+
+for employee in employees:
+    department = employee["dept"]
+
+    if department not in headcount:
+        headcount[department] = 1
+    else:
+        headcount[department] += 1
 
 
+# department summary by avg salary and headcount
+department_summary = {}
+for department in avg_salary:
+    department_summary[department] = {
+        "average_salary": avg_salary[department],
+        "headcount": headcount[department]
+    }
+
+sorted_summary = dict(sorted(department_summary.items()))
 
 print("=" * 30)
 print()
@@ -75,6 +104,7 @@ for dept in dept_list:
 print("=" * 30)
 print()
 
+
 print("Average salary per dept:")
 print()
 for department,avg in avg_salary.items():
@@ -82,16 +112,26 @@ for department,avg in avg_salary.items():
 print("=" * 30)
 print()
 
+
 print("Highest paid employee :")
 print()
 for key, value in highest_paid.items():
     print(f"{key} : {value}")
-print("=" * 30)
 print()
 
 print("Lowest paid employee :")
 print()
 for key, value in lowest_paid.items():
     print(f"{key} : {value}")
+print("=" * 30)
+print()
 
+print("Department with highest avg salary")
+print()
+print(f"{highest_dept}")
+print("=" * 30)
+print()
 
+print("Department summary")
+for department, details in sorted_summary.items():
+    print(f"Department {department} Average salary {details["average_salary"]} headcount {details["headcount"]}")
