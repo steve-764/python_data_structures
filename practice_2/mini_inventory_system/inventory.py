@@ -38,9 +38,11 @@ add_product(inventory, "Bread", 70, 3)
 add_product(inventory, "Cooking Oil 1L", 400, 8)
 
 # printing inventory
-print("Current inventory")
+print("=" * 30)
+print("         Current inventory")
 for product in inventory:
     print(product)
+print()
 print("=" * 30)
 print()
 
@@ -51,8 +53,17 @@ print()
 
 # printing low stock products 
 print("Low stock products")
+print()
 # using for loop to print each product on a new line
 for product in low_stock(inventory):
     print(product)
+print("=" * 30)
+print()
 
-    
+# low stock with quantity < 10
+print("Products stock with quantity < 10")
+print()
+for product in low_stock(inventory, 10):
+    print(product)
+print("=" * 30)
+
