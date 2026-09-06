@@ -36,7 +36,7 @@
 
 **Q14.** Given `stock = {'Sugar': 40, 'Rice': 0, 'Beans': 15, 'Maize': 0}`, use a loop to print only the products that are out of stock (value is `0`).
 
-**Q15. CHALLENGE:** You have sales data for a week:
+**Q15. CHALLENGE:** You have sales data for a week, Find and print the day with the highest sales and its amount, without using max() directly on the dictionary - loop through it and track the highest manually:
 
 ```python
 sales = {
